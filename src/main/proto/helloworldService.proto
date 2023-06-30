@@ -1,0 +1,17 @@
+
+syntax = "proto3";
+option java_multiple_files = true;
+package com.deepti.grpc;
+
+service HelloService {
+  rpc sayHello(HelloRequest) returns (HelloResponse);
+}
+
+message HelloRequest {
+  string firstName = 1;
+  string lastName = 2;
+}
+
+message HelloResponse {
+  string greeting = 1;
+}
