@@ -2,10 +2,16 @@
 syntax = "proto3";
 option java_multiple_files = true;
 package com.deepti.grpc;
+import "google/protobuf/empty.proto";
 
 service HelloService {
+
   rpc sayHello(HelloRequest) returns (HelloResponse);
-}
+  rpc grpc100KB(google.protobuf.Empty) returns (BigResponse) ;
+  rpc grpc500KB(google.protobuf.Empty) returns (BigResponse) ;
+  rpc grpc1MB(google.protobuf.Empty) returns (BigResponse) ;
+  rpc grpc5MB(google.protobuf.Empty) returns (BigResponse) ;
+  }
 
 message HelloRequest {
   string firstName = 1;
@@ -14,4 +20,9 @@ message HelloRequest {
 
 message HelloResponse {
   string greeting = 1;
+}
+
+
+message BigResponse {
+  string response = 1;
 }

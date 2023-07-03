@@ -29,34 +29,16 @@ repositories {
 }
 
 dependencies {
-//    classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.4'
     implementation "io.grpc:grpc-netty:${grpcVersion}"
     implementation "io.grpc:grpc-protobuf:${grpcVersion}"
     implementation "io.grpc:grpc-stub:${grpcVersion}"
     implementation "io.grpc:grpc-services:${grpcVersion}"
     implementation group: 'com.google.protobuf', name: 'protobuf-java-util', version: '3.12.2'
     implementation 'javax.annotation:javax.annotation-api:1.2'
+    implementation("com.google.guava:guava:32.1.0-jre")
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
-
-//shadowJar {
-//    baseName = 'shadow'
-//    classifier = null
-//    version = null
-//}
-
-
-
-//jar {
-//    manifest {
-//        attributes(
-//                'Class-Path': configurations.runtimeClasspath.files.collect {"$it.name"}.join(' '),
-//                'Main-Class': 'com.deepti.grpc.GRPCServer'
-//        )
-//    }
-//}
-
 
 jar {
     duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
